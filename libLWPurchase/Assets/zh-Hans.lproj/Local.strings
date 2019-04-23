@@ -1,10 +1,10 @@
-/* 
-  Local.strings
-  libLWWebUI
-
-  Created by luowei on 2019/3/26.
-  Copyright © 2019 luowei. All rights reserved.
-*/
+/*
+ Local.strings
+ libLWPurchase
+ 
+ Created by luowei on 2019/3/26.
+ Copyright © 2019 luowei. All rights reserved.
+ */
 
 "In-App Purchase" = "App内购买";
 
