@@ -1,0 +1,24 @@
+/* 
+  Local.strings
+  libLWWebUI
+
+  Created by luowei on 2019/3/26.
+  Copyright © 2019 luowei. All rights reserved.
+*/
+
+"In-App Purchase" = "App内购买";
+
+"Review" = "评论";
+"Purchase" = "购买";
+"Restore" = "恢复购买";
+
+"Close" = "关闭";
+
+"RePurchased Free" = "若之前购买过，再次购买将免费";
+"Purchases Disabled on this device." = "无法在此设备上进行购买";
+"Support Developer" = "支持开发者,只要";
+
+"Have been purchased" = "你已购买过,无需重购买";
+"Thanks for Your Surpport" = "谢谢你的支持!";
+
+"Purchase remove all limits" = "购买解除所有限制";
