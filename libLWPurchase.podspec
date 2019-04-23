@@ -32,11 +32,19 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'libLWPurchase/Classes/**/*'
   
-  # s.resource_bundles = {
+  s.resource_bundles = {
+      'libLWPurchase' => ['libLWPurchase/Assets/**/*']
   #   'libLWPurchase' => ['libLWPurchase/Assets/*.png']
-  # }
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+
+  s.dependency 'FCAlertView'
+  s.dependency 'MBProgressHUD'
+  s.dependency 'SDWebImage'
+  s.dependency 'Masonry'
+
+
 end

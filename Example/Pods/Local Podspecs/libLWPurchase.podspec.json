@@ -1,0 +1,41 @@
+{
+  "name": "libLWPurchase",
+  "version": "0.1.0",
+  "summary": "A short description of libLWPurchase.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/luowei/libLWPurchase",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "luowei": "luowei@wodedata.com"
+  },
+  "source": {
+    "git": "https://github.com/luowei/libLWPurchase.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "libLWPurchase/Classes/**/*",
+  "resource_bundles": {
+    "libLWPurchase": [
+      "libLWPurchase/Assets/**/*"
+    ]
+  },
+  "dependencies": {
+    "FCAlertView": [
+
+    ],
+    "MBProgressHUD": [
+
+    ],
+    "SDWebImage": [
+
+    ],
+    "Masonry": [
+
+    ]
+  }
+}

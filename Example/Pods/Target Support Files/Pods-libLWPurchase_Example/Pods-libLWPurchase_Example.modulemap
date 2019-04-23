@@ -1,0 +1,6 @@
+framework module Pods_libLWPurchase_Example {
+  umbrella header "Pods-libLWPurchase_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

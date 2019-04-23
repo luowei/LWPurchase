@@ -6,6 +6,7 @@
 //  Copyright (c) 2019 luowei. All rights reserved.
 //
 
+#import <libLWPurchase/LWPurchaseViewController.h>
 #import "LWViewController.h"
 
 @interface LWViewController ()
@@ -24,6 +25,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)btnAction:(UIButton *)sender {
+    UINavigationController *navigation = [LWPurchaseViewController navigationViewController];
+    [self presentViewController:navigation animated:YES completion:^{}];
 }
 
 @end

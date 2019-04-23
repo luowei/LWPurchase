@@ -5,9 +5,14 @@ platform :ios, '8.0'
 target 'libLWPurchase_Example' do
   pod 'libLWPurchase', :path => '../'
 
-  target 'libLWPurchase_Tests' do
-    inherit! :search_paths
+  pod 'SDWebImage', '~> 5.0.1'
 
-    
-  end
+  pod 'FCAlertView', '~> 1.4.0'
+  pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'Masonry'
+
+  # target 'libLWPurchase_Tests' do
+  #   inherit! :search_paths
+  #
+  # end
 end
