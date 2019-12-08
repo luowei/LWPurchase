@@ -1,6 +1,0 @@
-framework module libLWPurchase {
-  umbrella header "libLWPurchase-umbrella.h"
-
-  export *
-  module * { export * }
-}

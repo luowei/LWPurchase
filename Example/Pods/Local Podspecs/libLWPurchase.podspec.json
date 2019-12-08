@@ -1,9 +1,9 @@
 {
-  "name": "libLWPurchase",
+  "name": "LWPurchase",
   "version": "0.1.0",
-  "summary": "A short description of libLWPurchase.",
+  "summary": "A short description of LWPurchase.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/luowei/libLWPurchase",
+  "homepage": "https://github.com/luowei/LWPurchase",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,16 +12,16 @@
     "luowei": "luowei@wodedata.com"
   },
   "source": {
-    "git": "https://github.com/luowei/libLWPurchase.git",
+    "git": "https://github.com/luowei/LWPurchase.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "libLWPurchase/Classes/**/*",
+  "source_files": "LWPurchase/Classes/**/*",
   "resource_bundles": {
-    "libLWPurchase": [
-      "libLWPurchase/Assets/**/*"
+    "LWPurchase": [
+      "LWPurchase/Assets/**/*"
     ]
   },
   "dependencies": {

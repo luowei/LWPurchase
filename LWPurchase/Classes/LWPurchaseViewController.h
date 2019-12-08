@@ -9,7 +9,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SDWebImage/SDWebImage.h>
 
-#define LWPurchaseBundle(obj)  ([NSBundle bundleWithPath:[[NSBundle bundleForClass:[obj class]] pathForResource:@"libLWPurchase" ofType:@"bundle"]] ?: ([NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"libLWPurchase" ofType:@"bundle"]] ?: [NSBundle mainBundle]))
+#define LWPurchaseBundle(obj)  ([NSBundle bundleWithPath:[[NSBundle bundleForClass:[obj class]] pathForResource:@"LWPurchase" ofType:@"bundle"]] ?: ([NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"LWPurchase" ofType:@"bundle"]] ?: [NSBundle mainBundle]))
 
 #define IAPProductId (@"com.wodedata.MyInputMethod_AllPowerfulKey")   //内购ProductId
 
