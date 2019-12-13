@@ -4,10 +4,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LWHUD/LWHUD.h>
 #import "StoreManager.h"
 #import "StoreObserver.h"
-#import <MBProgressHUD/MBProgressHUD.h>
-#import <SDWebImage/SDWebImage.h>
+
+@class LWHUD;
 
 #define LWPurchaseBundle(obj)  ([NSBundle bundleWithPath:[[NSBundle bundleForClass:[obj class]] pathForResource:@"LWPurchase" ofType:@"bundle"]] ?: ([NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"LWPurchase" ofType:@"bundle"]] ?: [NSBundle mainBundle]))
 
@@ -54,7 +55,7 @@
 + (void)showHUDLoading;
 +(void)hideHUDLoading;
 
-+(MBProgressHUD *)showHUDWithMessage:(NSString *)message mode:(MBProgressHUDMode)mode;
++(LWHUD *)showHUDWithMessage:(NSString *)message mode:(LWHUDMode)mode;
 
 
 //在Documents目录下创建一个名为InputBgImg的文件夹

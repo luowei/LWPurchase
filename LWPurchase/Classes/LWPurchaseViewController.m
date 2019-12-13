@@ -4,11 +4,10 @@
 //
 
 #import "LWPurchaseViewController.h"
-#import "Reachability.h"
+#import <Reachability/Reachability.h>
 #import "LWPurchaseHelper.h"
+#import <LWSDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
-#import <MBProgressHUD/MBProgressHUD.h>
-#import <SDWebImage/SDWebImage.h>
 #import <FCAlertView/FCAlertView.h>
 
 
@@ -515,9 +514,9 @@
     if(!message || message.length == 0){
         return;
     }
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+    LWHUD *hud = [LWHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     hud.label.text = message;
-    hud.mode = MBProgressHUDModeText;
+    hud.mode = LWHUDModeText;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:2];
 }
@@ -525,15 +524,15 @@
     if(!message || message.length == 0){
         return;
     }
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+    LWHUD *hud = [LWHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     hud.detailsLabel.text = message;
-    hud.mode = MBProgressHUDModeText;
+    hud.mode = LWHUDModeText;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:2];
 }
 
-+(MBProgressHUD *)showHUDWithMessage:(NSString *)message mode:(MBProgressHUDMode)mode {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
++(LWHUD *)showHUDWithMessage:(NSString *)message mode:(LWHUDMode)mode {
+    LWHUD *hud = [LWHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     hud.label.text = message;
     hud.mode = mode;
     hud.removeFromSuperViewOnHide = YES;
@@ -541,8 +540,8 @@
 }
 
 + (void)showHUDLoading {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
+    LWHUD *hud = [LWHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+    hud.mode = LWHUDModeIndeterminate;
     hud.removeFromSuperViewOnHide = YES;
     [hud showAnimated:YES];
 }
@@ -550,8 +549,8 @@
 +(void)hideHUDLoading {
     UIWindow *keywindow = [UIApplication sharedApplication].keyWindow;
     for(UIView *view in keywindow.subviews){
-        if([view isKindOfClass:[MBProgressHUD class]]){
-            [(MBProgressHUD *)view hideAnimated:NO];
+        if([view isKindOfClass:[LWHUD class]]){
+            [(LWHUD *)view hideAnimated:NO];
             [view removeFromSuperview];
         }
     }
