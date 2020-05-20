@@ -24,11 +24,10 @@ SPEC REPOS:
     - FCAlertView
     - Masonry
     - MBProgressHUD
+    - Reachability
   https://gitlab.com/ioslibraries1/mygitlabrepo.git:
     - LWHUD
     - LWSDWebImage
-  trunk:
-    - Reachability
 
 EXTERNAL SOURCES:
   LWPurchase:
@@ -45,4 +44,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d32413813187c84048a5da5326ea931403d97f44
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4
