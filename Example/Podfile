@@ -11,8 +11,10 @@ target 'LWPurchase_Example' do
   pod 'FCAlertView', '~> 1.4.0'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'Masonry'
-
   pod 'Reachability'
+  
+  pod 'LWSDWebImage',:source => 'https://gitee.com/lw_ios_project/mylibrepo.git'
+  pod 'LWHUD',:source => 'https://gitee.com/lw_ios_project/mylibrepo.git'
 
   # target 'LWPurchase_Tests' do
   #   inherit! :search_paths
