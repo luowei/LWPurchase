@@ -33,7 +33,11 @@
 }
 
 - (void)leftItemaction {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    if(self.navigationController){
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    }
 }
 
 - (void)viewDidLoad {

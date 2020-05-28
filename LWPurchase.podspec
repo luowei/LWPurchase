@@ -42,9 +42,9 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
 
   s.dependency 'FCAlertView'
-  s.dependency 'LWHUD'
   s.dependency 'Masonry'
   s.dependency 'Reachability'
+  s.dependency 'LWHUD'
   s.dependency 'LWSDWebImage'
 
 
