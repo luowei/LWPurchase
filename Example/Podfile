@@ -1,4 +1,4 @@
-source 'https://gitlab.com/ioslibraries1/mygitlabrepo.git'
+# source 'https://gitlab.com/ioslibraries1/mygitlabrepo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
