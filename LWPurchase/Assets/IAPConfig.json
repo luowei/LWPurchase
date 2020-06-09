@@ -46,7 +46,7 @@
   ],
   "purchaseConfig":{
     "needPurchase":true,
-    "needKeyboardPurchase":false,
+    "needKeyboardPurchase":true,
     "tryRatingTriggerCount":10,
     "ratedTriggerCount":100
   }

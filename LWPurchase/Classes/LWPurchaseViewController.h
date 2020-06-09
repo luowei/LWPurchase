@@ -14,7 +14,7 @@
 
 #define IAPProductId (@"com.wodedata.MyInputMethod_AllPowerfulKey")   //内购ProductId
 
-#define IAPConfig_URLString @"http://wodedata.com/MyResource/MyInputMethod/IAPConfig.json"
+#define IAPConfig_URLString @"http://wodedata.com/MyResource/MyInputMethod/data_iapconfig.json"
 
 #define Key_isPurchasedSuccessedUser  @"Key_isPurchasedSuccessedUser"   //IAP购买成功
 #define Key_RatingTriggerCount  @"Key_RatingTriggerCount"
@@ -29,7 +29,7 @@
 #define APP_Lookup @"http://itunes.apple.com/cn/lookup?id=1227288468"
 #define APP_Reviews @"https://itunes.apple.com/cn/rss/customerreviews/id=1227288468/json"
 
-#define kAfterDate @"2019-02-28"
+#define kAfterDate @"2020-06-28"
 
 
 @interface LWPurchaseViewController : UIViewController

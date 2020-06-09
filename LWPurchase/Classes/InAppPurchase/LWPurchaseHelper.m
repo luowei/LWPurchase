@@ -153,7 +153,7 @@
 }
 
 + (void)loadPurchaseConfigFromLocal {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"IAPConfig" ofType:@"json"];
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"IAPConfig" ofType:@"json"];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     NSDictionary *dict = (NSMutableDictionary *) [NSJSONSerialization JSONObjectWithData:fileData options:0 error:nil];
     NSMutableDictionary *purchaseConfig = [dict[@"purchaseConfig"] mutableCopy];

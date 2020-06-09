@@ -615,7 +615,7 @@
         [MyPurchaseUIHelper showHUDWithMessage:msg];
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSURL *purchaseURL = [NSURL URLWithString:@"LWInputMethod://inapp.app_purchase"];
+            NSURL *purchaseURL = [NSURL URLWithString:@"LWInputMethod://inapp.appin_purchase"];
             if (@available(iOS 10.0,*)) {
                 [[UIApplication sharedApplication] openURL:purchaseURL options:@{} completionHandler:nil];
             }else{
