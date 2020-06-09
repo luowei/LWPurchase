@@ -21,7 +21,6 @@
 
 #define Key_AppPrice  @"appPrice"
 #define Key_needPurchase  @"needPurchase"
-#define Key_needKeyboardPurchase  @"needKeyboardPurchase"
 #define Key_tryRatingTriggerCount  @"tryRatingTriggerCount"
 #define Key_ratedTriggerCount  @"ratedTriggerCount"
 #define Key_currentTriggerCount  @"currentTriggerCount"
@@ -30,6 +29,8 @@
 #define APP_Reviews @"https://itunes.apple.com/cn/rss/customerreviews/id=1227288468/json"
 
 #define kAfterDate @"2020-06-28"
+
+#define AppGroupIdentifer @"group.com.wodedata.LWInputMethod"
 
 
 @interface LWPurchaseViewController : UIViewController

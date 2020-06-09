@@ -165,7 +165,6 @@
 
 +(void)refreshPurchaseConfig:(NSDictionary *)configDict {
     [LWPurchaseHelper setValue:configDict[Key_needPurchase] key:Key_needPurchase];
-    [LWPurchaseHelper setValue:configDict[Key_needKeyboardPurchase] key:Key_needKeyboardPurchase];
     [LWPurchaseHelper setValue:configDict[Key_tryRatingTriggerCount] key:Key_tryRatingTriggerCount];
     [LWPurchaseHelper setValue:configDict[Key_ratedTriggerCount] key:Key_ratedTriggerCount];
 }
@@ -175,12 +174,17 @@
 #pragma mark - UserDefautls
 
 +(id)getValueByKey:(NSString *)key {
-    id value = [LWPurchaseHelper getUserDefaultValueByKey:key];
+    id value = [LWPurchaseHelper getMyInputMethodAPPGroupValueByKey:key];
+    if(!value){
+        value = [LWPurchaseHelper getUserDefaultValueByKey:key];
+        [LWPurchaseHelper setMyInputMethodAPPGroupValue:value withKey:key];
+    }
     return value;
 }
 
 +(void)setValue:(id)value key:(NSString *)key {
     [LWPurchaseHelper setUserDefaultValue:value withKey:key];
+    [LWPurchaseHelper setMyInputMethodAPPGroupValue:value withKey:key];
 }
 
 
@@ -197,5 +201,17 @@
     [userDefaults synchronize];
 }
 
+//从APP Group中取值
++(id)getMyInputMethodAPPGroupValueByKey:(NSString *)key {
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:AppGroupIdentifer];
+    return [userDefaults objectForKey:key];
+}
+
+//向APP Group中设置值
++(void)setMyInputMethodAPPGroupValue:(id)value withKey:(NSString *)key {
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:AppGroupIdentifer];
+    [userDefaults setObject:value forKey:key];
+    [userDefaults synchronize];
+}
 
 @end
