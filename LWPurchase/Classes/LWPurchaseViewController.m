@@ -75,9 +75,13 @@
     //手势
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
     tapGesture.numberOfTapsRequired = 5;
-    tapGesture.numberOfTouchesRequired = 3;
+    tapGesture.numberOfTouchesRequired = [self isSimulator] ? 2 : 3;
     [tapGesture addTarget:self action:@selector(tapGestureAction:)];
     [self.view addGestureRecognizer:tapGesture];
+}
+
+- (BOOL)isSimulator {
+    return [NSProcessInfo processInfo].environment[@"SIMULATOR_DEVICE_NAME"] != nil;
 }
 
 - (void)tapGestureAction:(UITapGestureRecognizer *)tapGesture {
