@@ -13,41 +13,12 @@
           "actionName": "restoreAction"
         }
       ]
-    },
-    {
-      "应用推荐": [
-        {
-          "icon": "",
-          "title": "我的浏览器",
-          "appId": "1019594424"
-        },
-        {
-          "icon": "",
-          "title": "斗图王",
-          "appId": "1335365550"
-        },
-        {
-          "icon": "",
-          "title": "美图王",
-          "appId": "1281496162"
-        },
-        {
-          "icon": "",
-          "title": "Mark记事本",
-          "appId": "1274459069"
-        },
-        {
-          "icon": "",
-          "title": "照片DIY",
-          "appId": "1198477850"
-        }
-      ]
     }
   ],
   "purchaseConfig":{
     "needPurchase":true,
     "needKeyboardPurchase":true,
-    "tryRatingTriggerCount":10,
+    "tryRatingTriggerCount":30,
     "ratedTriggerCount":100
   }
 }

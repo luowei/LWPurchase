@@ -103,10 +103,13 @@
 
 //显示评分
 + (void)showRating {
+    //首次触发需要达的数目
     NSInteger tryTriggerCnt = [[LWPurchaseHelper getValueByKey:Key_tryRatingTriggerCount] integerValue];
     tryTriggerCnt = tryTriggerCnt > 0 ? tryTriggerCnt : 50;
+    //后续每次需要达到ratedTriggerCnt的倍数才触发
     NSInteger ratedTriggerCnt = [[LWPurchaseHelper getValueByKey:Key_ratedTriggerCount] integerValue];
     ratedTriggerCnt = ratedTriggerCnt > 0 ? ratedTriggerCnt : 200;
+    //当前计数器
     NSInteger currentTriggerCnt = [[LWPurchaseHelper getValueByKey:Key_currentTriggerCount] integerValue];
 
     BOOL shouldTrigger = currentTriggerCnt == tryTriggerCnt;
