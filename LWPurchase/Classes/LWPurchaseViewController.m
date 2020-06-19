@@ -256,7 +256,7 @@
         NSDictionary *dict = (NSMutableDictionary *) [NSJSONSerialization JSONObjectWithData:fileData options:0 error:nil];
         _dataList = [dict[@"data"] mutableCopy];
         NSMutableDictionary *purchaseConfig = [dict[@"purchaseConfig"] mutableCopy];
-        dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_main_async_safe(^{
             [self.tableView reloadData];
             [LWPurchaseHelper refreshPurchaseConfig:purchaseConfig];
         });
@@ -277,7 +277,7 @@
                        if(dict){
                            strongSelf.dataList = [dict[@"data"] mutableCopy];
                            NSMutableDictionary *purchaseConfig = [dict[@"purchaseConfig"] mutableCopy];
-                           dispatch_async(dispatch_get_main_queue(), ^{
+                           dispatch_main_async_safe(^{
                                [strongSelf.tableView reloadData];
                                [LWPurchaseHelper refreshPurchaseConfig:purchaseConfig];
                            });
@@ -377,8 +377,11 @@
                         //首次安装走恢复购买
                         [[StoreObserver sharedInstance] restoreWithProduct:iapProduct];   //恢复购买
                     }else{
-                        //显示购买产品弹窗
-                        [self showProductAlert:iapProduct];
+                        dispatch_main_async_safe(^{
+                            //显示购买产品弹窗
+                            [self showProductAlert:iapProduct];
+                        });
+
                     }
                     return;
                 }
