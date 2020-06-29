@@ -28,7 +28,7 @@
 #define APP_Lookup @"http://itunes.apple.com/cn/lookup?id=1227288468"
 #define APP_Reviews @"https://itunes.apple.com/cn/rss/customerreviews/id=1227288468/json"
 
-#define kAfterDate @"2020-07-01"
+#define kAfterDate @"2020-07-03"
 
 #define AppGroupIdentifer @"group.com.wodedata.LWInputMethod"
 
