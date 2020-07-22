@@ -12,9 +12,12 @@
 
 #define LWPurchaseBundle(obj)  ([NSBundle bundleWithPath:[[NSBundle bundleForClass:[obj class]] pathForResource:@"LWPurchase" ofType:@"bundle"]] ?: ([NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"LWPurchase" ofType:@"bundle"]] ?: [NSBundle mainBundle]))
 
-#define IAPProductId (@"com.wodedata.MyInputMethod_AllPowerfulKey")   //内购ProductId
+//#define IAPProductId (@"com.wodedata.MyInputMethod_AllPowerfulKey")   //内购ProductId
+#define IAPProductId (@"com.wodedata.WBInputMethod_NoAds")   //内购ProductId
 
-#define IAPConfig_URLString @"http://wodedata.com/MyResource/MyInputMethod/data_iapconfig.json"
+
+//#define IAPConfig_URLString @"http://wodedata.com/MyResource/MyInputMethod/data_iapconfig.json"
+#define IAPConfig_URLString @"http://wodedata.com/MyResource/WBInput/data_iapconfig.json"
 
 #define Key_isPurchasedSuccessedUser  @"Key_isPurchasedSuccessedUser"   //IAP购买成功
 #define Key_RatingTriggerCount  @"Key_RatingTriggerCount"
@@ -25,15 +28,18 @@
 #define Key_ratedTriggerCount  @"ratedTriggerCount"
 #define Key_currentTriggerCount  @"currentTriggerCount"
 
-#define APP_Lookup @"http://itunes.apple.com/cn/lookup?id=1227288468"
-#define APP_Reviews @"https://itunes.apple.com/cn/rss/customerreviews/id=1227288468/json"
+#define APP_Lookup @"http://itunes.apple.com/cn/lookup?id=1522850307"
+#define APP_Reviews @"https://itunes.apple.com/cn/rss/customerreviews/id=1522850307/json"
 
 #define kAfterDate @"2020-07-03"
 
-#define AppGroupIdentifer @"group.com.wodedata.LWInputMethod"
+//#define AppGroupIdentifer @"group.com.wodedata.LWInputMethod"
+#define AppGroupIdentifer @"group.com.wodedata.WBInputMethod"
 
 
 @interface LWPurchaseViewController : UIViewController
+
+@property (nonatomic) BOOL needPrePurchase;
 
 + (UINavigationController *)navigationViewController;
 

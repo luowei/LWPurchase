@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedStringFromTableInBundle(@"In-App Purchase", @"Local", LWPurchaseBundle(self), nil);
+    self.title = self.title ?: NSLocalizedStringFromTableInBundle(@"In-App Purchase", @"Local", LWPurchaseBundle(self), nil);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle(@"Close", @"Local", LWPurchaseBundle(self), nil)
             style:UIBarButtonItemStylePlain target:self action:@selector(leftItemaction)];
 
@@ -79,6 +79,24 @@
     [tapGesture addTarget:self action:@selector(tapGestureAction:)];
     [self.view addGestureRecognizer:tapGesture];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    if(self.needPrePurchase){
+        if([LWPurchaseHelper isPurchased]){
+            NSLocalizedStringFromTableInBundle(@"Have been purchased", @"Local", LWPurchaseBundle(self), nil);
+        }else{
+            [self buyAction];
+        }
+    }
+}
+
 
 - (BOOL)isSimulator {
     return [NSProcessInfo processInfo].environment[@"SIMULATOR_DEVICE_NAME"] != nil;
