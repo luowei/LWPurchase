@@ -45,7 +45,7 @@ TODO: Add long description of the pod here.
   s.dependency 'Masonry'
   s.dependency 'Reachability'
   s.dependency 'LWHUD'
-  s.dependency 'LWSDWebImage'
+  # s.dependency 'LWSDWebImage'
 
 
 end

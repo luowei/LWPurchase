@@ -6,7 +6,6 @@
 #import "LWPurchaseViewController.h"
 #import <Reachability/Reachability.h>
 #import "LWPurchaseHelper.h"
-#import <LWSDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
 #import <FCAlertView/FCAlertView.h>
 
@@ -34,7 +33,14 @@
 
 - (void)leftItemaction {
     if(self.navigationController){
-        [self.navigationController popViewControllerAnimated:YES];
+        BOOL isModal = [self presentingViewController] || [[self.navigationController presentingViewController] presentedViewController] == self.navigationController;
+
+        if(isModal){
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{}];
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+
     }else{
         [self dismissViewControllerAnimated:YES completion:^{}];
     }
@@ -179,15 +185,16 @@
     NSDictionary *item = list[indexPath.row];
 
     NSString *iconValue = item[@"icon"];
-    if([iconValue hasPrefix:@"http"]){
-        UIImage *placeholderImage = [UIImage imageNamed:@"imgIcon" inBundle:LWPurchaseBundle(self) compatibleWithTraitCollection:nil];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconValue] placeholderImage:placeholderImage];
-        cell.imageView.layer.cornerRadius = 4;
-        cell.imageView.clipsToBounds = YES;
-    }else{
+//    if([iconValue hasPrefix:@"http"]){
+//        UIImage *image = [UIImage imageNamed:@"imgIcon" inBundle:LWPurchaseBundle(self) compatibleWithTraitCollection:nil];
+//        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconValue] placeholderImage:image];
+//        cell.imageView.image =  image;
+//        cell.imageView.layer.cornerRadius = 4;
+//        cell.imageView.clipsToBounds = YES;
+//    }else{
         UIImage *iconImage = [UIImage imageNamed:iconValue inBundle:LWPurchaseBundle(self) compatibleWithTraitCollection:nil];
         cell.imageView.image = iconImage;
-    }
+//    }
 
     if([item[@"actionName"] isEqualToString:@"buyAction"] && [LWPurchaseHelper isPurchased]){
         cell.textLabel.text = NSLocalizedStringFromTableInBundle(@"Thanks for Your Surpport", @"Local", LWPurchaseBundle(self), nil);

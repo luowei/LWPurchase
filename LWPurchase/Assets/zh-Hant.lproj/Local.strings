@@ -1,0 +1,24 @@
+/*
+ Local.strings
+ LWPurchase
+ 
+ Created by luowei on 2019/3/26.
+ Copyright © 2019 luowei. All rights reserved.
+ */
+
+"In-App Purchase" = "App內購買";
+
+"Review" = "評論";
+"Purchase" = "購買";
+"Restore" = "恢復購買";
+
+"Close" = "關閉";
+
+"RePurchased Free" = "若之前購買過，再次購買將免費";
+"Purchases Disabled on this device." = "無法在此設備上進行購買";
+"Support Developer" = "支持開發者,只要";
+
+"Have been purchased" = "你已購買過,無需重購買";
+"Thanks for Your Surpport" = "謝謝你的支持!";
+
+"Purchase remove all limits" = "購買解除所有限制";
