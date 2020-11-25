@@ -491,7 +491,7 @@
         }
         case IAPDownloadSucceeded: {
             [LWPurchaseHelper setValue:@YES key:Key_isPurchasedSuccessedUser];
-            //[MyHelper showHUDWithDetailMessage:storeObserver.message];
+            //[LWHelper showHUDWithDetailMessage:storeObserver.message];
             [self updateBuyUI]; //更新购买UI
             break;
         }
