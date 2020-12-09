@@ -445,10 +445,16 @@
         [strongAlert dismissAlertView];
     }];
 
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    [alert showAlertInWindow:keyWindow withTitle:title withSubtitle:descText
-             withCustomImage:nil withDoneButtonTitle:NSLocalizedStringFromTableInBundle(@"Ok", @"Local", LWPurchaseBundle(self), nil)
-                  andButtons:nil];
+    NSDictionary *colorDict = @{NSForegroundColorAttributeName :UIColor.darkTextColor};
+    NSAttributedString *aTitle = [[NSAttributedString alloc] initWithString:title attributes:colorDict];
+    NSAttributedString *asubTitle = [[NSAttributedString alloc] initWithString:descText attributes:colorDict];
+    [alert showAlertWithAttributedTitle:aTitle withAttributedSubtitle:asubTitle withCustomImage:nil
+                    withDoneButtonTitle:NSLocalizedStringFromTableInBundle(@"Ok", @"Local", LWPurchaseBundle(self),nil) andButtons:nil];
+
+//    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+//    [alert showAlertInWindow:keyWindow withTitle:title withSubtitle:descText
+//             withCustomImage:nil withDoneButtonTitle:NSLocalizedStringFromTableInBundle(@"Ok", @"Local", LWPurchaseBundle(self), nil)
+//                  andButtons:nil];
 
     //消息提示
     NSNumber *value = [LWPurchaseHelper getValueByKey:Key_isPurchasedSuccessedUser];

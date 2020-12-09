@@ -14,6 +14,8 @@
 
 //判断是否是指定日期之后,dateString 格式 ：yyyy-MM-dd
 + (BOOL)isAfterDate:(NSString *)dateString;
+//获得两个时间之间的日差
++ (NSInteger)daysBetweenDate:(NSString *)fromDateTime andDate:(NSString *)toDateTime;
 
 //是否已经购买过了
 +(BOOL)isPurchased;
