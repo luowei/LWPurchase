@@ -20,6 +20,12 @@ it, simply add the following line to your Podfile:
 pod 'LWPurchase'
 ```
 
+**Carthage**
+```ruby
+github "luowei/LWPurchase"
+```
+
+
 ## Author
 
 luowei, luowei@wodedata.com
