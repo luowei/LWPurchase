@@ -9,6 +9,30 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+### Usage
+
+```oc
+//打开App内购页面
+- (IBAction)btnAction:(UIButton *)sender {
+    UINavigationController *navigation = [LWPurchaseViewController navigationViewController];
+    [self presentViewController:navigation animated:YES completion:^{}];
+}
+
+```
+
+注意：集成后把`LWPurchaseViewController.h`配置宏改成你自己的，
+```
+//todo: 改成你自己的 内购ProductId
+#define IAPProductId (@"com.wodedata.Test_NoAds")   //内购ProductId
+
+//把Assets目录底下的data_iapconfig.json，改成你自己的，并传到自己的私服上，并把地址配置给以下的IAPConfig_URLString
+#define IAPConfig_URLString @"http://xxxxx.com/xxxx/data_iapconfig.json"
+
+//如果Extension中也要同步内购信息，AppGroup配置一下即可
+// #define AppGroupIdentifer @"group.com.wodedata.test"
+
+```
+
 ## Requirements
 
 ## Installation
