@@ -8,6 +8,7 @@
 #import "LWPurchaseHelper.h"
 #import <Masonry/Masonry.h>
 #import <FCAlertView/FCAlertView.h>
+#import <objc/runtime.h>
 
 
 @interface LWPurchaseViewController ()<UITableViewDataSource,UITableViewDelegate,SKStoreProductViewControllerDelegate>
@@ -19,6 +20,7 @@
 @property(nonatomic) BOOL isRestoreRequest;
 @property(nonatomic, strong) SKProduct *iapProduct;
 
+@property(nonatomic) CGPoint viewTranslation;
 @end
 
 @implementation LWPurchaseViewController {
@@ -39,27 +41,12 @@
     return [LWPurchaseViewController new];
 }
 
-- (void)leftItemaction {
-    if(self.navigationController){
-        BOOL isModal = [self presentingViewController] || [[self.navigationController presentingViewController] presentedViewController] == self.navigationController;
-
-        if(isModal){
-            [self.navigationController dismissViewControllerAnimated:YES completion:^{}];
-        }else{
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-
-    }else{
-        [self dismissViewControllerAnimated:YES completion:^{}];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.title = self.title ?: NSLocalizedStringFromTableInBundle(@"In-App Purchase", @"Local", LWPurchaseBundle(self), nil);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle(@"Close", @"Local", LWPurchaseBundle(self), nil)
-            style:UIBarButtonItemStylePlain target:self action:@selector(leftItemaction)];
+            style:UIBarButtonItemStylePlain target:self action:@selector(leftItemAction)];
 
 
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -92,6 +79,12 @@
     tapGesture.numberOfTouchesRequired = [self isSimulator] ? 2 : 3;
     [tapGesture addTarget:self action:@selector(tapGestureAction:)];
     [self.view addGestureRecognizer:tapGesture];
+
+//    [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleDismiss:)] ];
+//    self.viewTranslation = CGPointMake(0, 0);
+
+//    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//    object_setClass(self.navigationController.interactivePopGestureRecognizer, [UIPanGestureRecognizer class]);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -116,6 +109,20 @@
     return [NSProcessInfo processInfo].environment[@"SIMULATOR_DEVICE_NAME"] != nil;
 }
 
+- (void)leftItemAction {
+    if(self.navigationController){
+        BOOL isModal = [self presentingViewController] || [[self.navigationController presentingViewController] presentedViewController] == self.navigationController;
+
+        if(isModal){
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{}];
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }else{
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    }
+}
+
 - (void)tapGestureAction:(UITapGestureRecognizer *)tapGesture {
     if([[LWPurchaseHelper getValueByKey:Key_isPurchasedSuccessedUser] boolValue]){
         [LWPurchaseHelper setValue:nil key:Key_isPurchasedSuccessedUser];
@@ -123,6 +130,42 @@
         [LWPurchaseHelper setValue:@(YES) key:Key_isPurchasedSuccessedUser];
     }
     [self updateBuyUI];
+}
+
+- (void)handleDismiss:(UIPanGestureRecognizer *)sender {
+    switch (sender.state) {
+        case UIGestureRecognizerStateChanged:{
+            self.viewTranslation = [sender translationInView:self.view];
+            [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:1 options:UIViewAnimationCurveEaseOut animations:^{
+                self.view.transform = CGAffineTransformMakeTranslation(self.viewTranslation.x, 0);
+            } completion:nil];
+            break;
+        }
+        case UIGestureRecognizerStateEnded:{
+            if(self.viewTranslation.x < 100) {
+                [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:1 options:UIViewAnimationCurveEaseOut animations:^{
+                    self.view.transform = CGAffineTransformIdentity;
+                } completion:nil];
+
+            }else { //close
+                if(self.navigationController){
+                    BOOL isModal = [self presentingViewController] || [[self.navigationController presentingViewController] presentedViewController] == self.navigationController;
+
+                    if(isModal){
+                        [self.navigationController dismissViewControllerAnimated:YES completion:^{}];
+                    }else{
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
+                }else{
+                    [self dismissViewControllerAnimated:YES completion:^{}];
+                }
+            }
+            break;
+        }
+        default:
+            break;
+    }
+
 }
 
 - (NSMutableArray<NSDictionary *> *)dataList {
