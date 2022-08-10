@@ -23,6 +23,9 @@
 //是否需要内购
 + (BOOL)isNeedPurchase;
 
+//隐藏购买入口
++ (BOOL)hidePurchaseEntry;
+
 //重新加载APP的价格
 + (void)reloadAppPriceWithCompleteBlock:(void (^)(double price))completeBlock;
 

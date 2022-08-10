@@ -38,6 +38,7 @@
 
 #define Key_AppPrice  @"appPrice"
 #define Key_needPurchase  @"needPurchase"
+#define Key_hidePurchaseEntry  @"hidePurchaseEntry"
 #define Key_tryRatingTriggerCount  @"tryRatingTriggerCount"
 #define Key_ratedTriggerCount  @"ratedTriggerCount"
 #define Key_currentTriggerCount  @"currentTriggerCount"
@@ -57,6 +58,7 @@
 @property (nonatomic) BOOL needPrePurchase;
 
 + (UINavigationController *)navigationViewController;
++ (instancetype)viewController;
 
 @end
 

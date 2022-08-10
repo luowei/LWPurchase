@@ -26,9 +26,17 @@
 }
 
 + (UINavigationController *)navigationViewController {
-    LWPurchaseViewController *vc = [LWPurchaseViewController new];
-    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:vc];
-    return navigation;
+    if([LWPurchaseHelper hidePurchaseEntry]){
+        return nil;
+    }
+    return [[UINavigationController alloc] initWithRootViewController:[LWPurchaseViewController viewController] ];
+}
+
++ (instancetype)viewController {
+    if([LWPurchaseHelper hidePurchaseEntry]){
+        return nil;
+    }
+    return [LWPurchaseViewController new];
 }
 
 - (void)leftItemaction {

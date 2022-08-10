@@ -61,12 +61,22 @@
 
 //是否需要内购
 + (BOOL)isNeedPurchase {
-    double appPrice = [[LWPurchaseHelper getValueByKey:Key_AppPrice] doubleValue];
+    BOOL hidePurchaseEntry = [[LWPurchaseHelper getValueByKey:Key_hidePurchaseEntry] boolValue];
+    if(hidePurchaseEntry){ //如果隐藏了购买入口，则不需要购买
+        return NO;
+    }
+
     BOOL isNeedPurchase = [[LWPurchaseHelper getValueByKey:Key_needPurchase] boolValue];
     if (!isNeedPurchase) {
-        isNeedPurchase = appPrice <= 3; //小于3块钱
+        double appPrice = [[LWPurchaseHelper getValueByKey:Key_AppPrice] doubleValue];
+        isNeedPurchase = appPrice <= 3; //小于3块钱,自动开启内购
     }
     return isNeedPurchase;
+}
+
+//隐藏购买入口
++ (BOOL)hidePurchaseEntry {
+    return [[LWPurchaseHelper getValueByKey:Key_hidePurchaseEntry] boolValue];
 }
 
 + (void)reloadAppPriceWithCompleteBlock:(void (^)(double price))completeBlock {
@@ -161,10 +171,10 @@
     if(!fileData){
         dispatch_async(dispatch_get_main_queue(), ^{
             NSDictionary *dict = @{
-                Key_needPurchase:@(true),
+                Key_needPurchase:@(YES),
+                Key_hidePurchaseEntry:@(NO),
                 Key_tryRatingTriggerCount:@(20),
                 Key_ratedTriggerCount:@(100)
-
             };
             [LWPurchaseHelper refreshPurchaseConfig:dict];
             return;
@@ -181,6 +191,7 @@
 
 +(void)refreshPurchaseConfig:(NSDictionary *)configDict {
     [LWPurchaseHelper setValue:configDict[Key_needPurchase] key:Key_needPurchase];
+    [LWPurchaseHelper setValue:configDict[Key_hidePurchaseEntry] key:Key_hidePurchaseEntry];
     [LWPurchaseHelper setValue:configDict[Key_tryRatingTriggerCount] key:Key_tryRatingTriggerCount];
     [LWPurchaseHelper setValue:configDict[Key_ratedTriggerCount] key:Key_ratedTriggerCount];
 }

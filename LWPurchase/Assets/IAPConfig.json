@@ -17,6 +17,7 @@
   ],
   "purchaseConfig":{
     "needPurchase":true,
+    "hidePurchaseEntry": false,
     "needKeyboardPurchase":true,
     "tryRatingTriggerCount":30,
     "ratedTriggerCount":100
