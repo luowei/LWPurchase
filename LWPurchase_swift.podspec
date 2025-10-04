@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint LWPurchase.podspec' to ensure this is a
+# Be sure to run `pod lib lint LWPurchase_swift.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'LWPurchase'
+  s.name             = 'LWPurchase_swift'
   s.version          = '1.0.0'
-  s.summary          = 'LWPurchase，App非消耗型内购组件，一行代码实现对内购集成。'
+  s.summary          = 'LWPurchase Swift版本，App非消耗型内购组件，一行代码实现对内购集成。'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-LWPurchase，App非消耗型内购组件，一行代码实现对内购集成。
+LWPurchase Swift版本，App非消耗型内购组件，一行代码实现对内购集成。
                        DESC
 
   s.homepage         = 'https://github.com/luowei/LWPurchase'
@@ -29,17 +29,15 @@ LWPurchase，App非消耗型内购组件，一行代码实现对内购集成。
   # s.source           = { :git => 'https://gitlab.com/ioslibraries1/liblwpurchase.git' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '13.0'
+  s.swift_version = '5.0'
 
-  s.source_files = 'LWPurchase/Classes/**/*.{h,m}'
-  s.exclude_files = 'LWPurchase/Swift/**/*.swift'
+  s.source_files = 'LWPurchase_swift/Swift/**/*'
 
   s.resource_bundles = {
-      'LWPurchase' => ['LWPurchase/Assets/**/*']
-  #   'LWPurchase' => ['LWPurchase/Assets/*.png']
+      'LWPurchase_swift' => ['LWPurchase/Assets/**/*']
   }
 
-  s.public_header_files = 'LWPurchase/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 
@@ -48,6 +46,5 @@ LWPurchase，App非消耗型内购组件，一行代码实现对内购集成。
   s.dependency 'Reachability'
   s.dependency 'LWHUD'
   # s.dependency 'LWSDWebImage'
-
 
 end

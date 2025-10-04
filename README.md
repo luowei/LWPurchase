@@ -58,6 +58,14 @@ LWPurchase is available through [CocoaPods](https://cocoapods.org). To install i
 pod 'LWPurchase'
 ```
 
+For Swift version, use:
+
+```ruby
+pod 'LWPurchase_swift'
+```
+
+See [Swift Version Documentation](README_SWIFT_VERSION.md) for more details.
+
 Then run:
 
 ```bash
