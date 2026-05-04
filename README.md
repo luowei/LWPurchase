@@ -1,5 +1,12 @@
 # LWPurchase
 
+
+## graphify Knowledge Graph
+
+- Interactive graph: https://luowei.github.io/LWPurchase/
+- Report: https://luowei.github.io/LWPurchase/GRAPH_REPORT.md
+- Graph data: https://luowei.github.io/LWPurchase/graph.json
+
 [![CI Status](https://img.shields.io/travis/luowei/LWPurchase.svg?style=flat)](https://travis-ci.org/luowei/LWPurchase)
 [![Version](https://img.shields.io/cocoapods/v/LWPurchase.svg?style=flat)](https://cocoapods.org/pods/LWPurchase)
 [![License](https://img.shields.io/cocoapods/l/LWPurchase.svg?style=flat)](https://cocoapods.org/pods/LWPurchase)
